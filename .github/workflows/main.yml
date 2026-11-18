@@ -9,8 +9,8 @@ on:
 env:
   AWS_REGION: us-east-2
   ECR_REPOSITORY: tarea3-app
-  ECS_CLUSTER: app-cluster
-  ECS_SERVICE: app-service
+  ECS_CLUSTER: tarea3-cluster
+  ECS_SERVICE: tarea3-service
 
 jobs:
   build-and-deploy:
