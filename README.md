@@ -5,8 +5,8 @@
 Esta carpeta contiene el código fuente de una aplicación web ligera desarrollada con **Node.js** y **Express**, lista para ejecutarse en contenedores Docker y desplegarse de forma continua en **Amazon ECR** y **Amazon ECS Fargate**.
 
 Expone dos endpoints HTTP en el puerto `3000`:
-- `GET /`: Devuelve un JSON indicando el estado de la aplicación y si `DB_HOST` está configurado.
-- `GET /health`: Endpoint de verificación de salud (*healthcheck*).
+- `GET /`: Devuelve una página HTML indicando el estado de la aplicación, hostname del contenedor, puerto, `DB_HOST`, `DB_NAME` y tiempo activo.
+- `GET /health`: Endpoint de verificación de salud (*healthcheck*) en formato JSON.
 
 ---
 
@@ -26,7 +26,7 @@ Cada vez que se hace `push` a la rama `main` (o al ejecutarse manualmente median
 2. Se autentica en AWS usando los Secrets configurados en GitHub.
 3. Inicia sesión en **Amazon ECR** (`us-east-2`).
 4. Construye la imagen Docker usando `Dockerfile`, la etiqueta con el número de ejecución y `:latest`, y la sube al repositorio **`tarea3-app`**.
-5. Fuerza un nuevo despliegue en **Amazon ECS** (`aws ecs update-service --force-new-deployment`) sobre el clúster **`app-cluster`** y el servicio **`app-service`** para tomar la nueva versión `:latest`.
+5. Fuerza un nuevo despliegue en **Amazon ECS** (`aws ecs update-service --force-new-deployment`) sobre el clúster **`tarea3-cluster`** y el servicio **`tarea3-service`** para tomar la nueva versión `:latest`.
 
 ### Secrets requeridos en GitHub Actions
 Para que el pipeline funcione, configura los siguientes secrets en tu repositorio de GitHub (**Settings > Secrets and variables > Actions > New repository secret**):
