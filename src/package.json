@@ -1,0 +1,13 @@
+{
+  "name": "tarea3-app-node",
+  "version": "1.0.0",
+  "description": "Aplicacion web Node.js contenedorizada para despliegue en AWS ECR y ECS Fargate",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
